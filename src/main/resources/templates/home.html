@@ -45,7 +45,14 @@
     </div>
     <div class="gifs container">
         <div class="row">
-           <h1>Miejsce na wyświetlenie gifów:)</h1>
+
+            <h1>GIFS</h1>
+            <th:block th:each="gif: ${gifs}">
+<tr>
+                 <td><img th:src="${gif.getUrl()}" class="col s12 l4></td>
+</tr>
+            </th:block>
+
         </div>
     </div>
 
