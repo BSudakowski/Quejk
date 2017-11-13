@@ -48,9 +48,9 @@
 
             <h1>GIFS</h1>
             <th:block th:each="gif: ${gifs}">
-<tr>
-                 <td><img th:src="${gif.getUrl()}" class="col s12 l4"></td>
-</tr>
+
+                <a th:href="@{/details}"> <div><img th:src="${gif.getUrl()}" class="col s12 l4" name="id", th:value="${gif.getId()}" ismap></div></a>
+
             </th:block>
 
         </div>

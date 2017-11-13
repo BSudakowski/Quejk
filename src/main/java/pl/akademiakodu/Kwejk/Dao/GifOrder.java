@@ -12,12 +12,12 @@ public class GifOrder implements GifDao {
     private List<Gif> gifs = new ArrayList<>();
 
     public GifOrder(){
-        gifs.add(new Gif("gifs/android-explosion.gif", true));
-        gifs.add(new Gif("gifs/ben-and-mike.gif", false));
-        gifs.add(new Gif("gifs/book-dominos.gif", false));
-        gifs.add(new Gif("gifs/compiler-bot.gif", false));
-        gifs.add(new Gif("gifs/cowboy-coder.gif", false));
-        gifs.add(new Gif("gifs/infinite-andrew.gif", true));
+        gifs.add(new Gif("gifs/android-explosion.gif", true, "0"));
+        gifs.add(new Gif("gifs/ben-and-mike.gif", false, "1"));
+        gifs.add(new Gif("gifs/book-dominos.gif", false, "2"));
+        gifs.add(new Gif("gifs/compiler-bot.gif", false, "3"));
+        gifs.add(new Gif("gifs/cowboy-coder.gif", false, "4"));
+        gifs.add(new Gif("gifs/infinite-andrew.gif", true, "5"));
 
     }
 
