@@ -49,6 +49,13 @@
         </div>
     </div>
 
+    <h1>Favorite Gifs</h1>
+    <th:block th:each="favoriteGif: ${favoriteGifs}">
+        <tr>
+            <td><img th:src="${favoriteGif.getUrl()}" class="col s12 l4"></td>
+        </tr>
+    </th:block>
+
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
 <script th:src="@{/app.js}"></script>
