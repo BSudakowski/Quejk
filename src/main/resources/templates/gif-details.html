@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <link rel="icon" th:href="@{/favicon.png}" />
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" th:href="@{/app.css}" />
@@ -47,7 +47,7 @@
         <div class="frame row">
             <div class="col s12">
                 <img style="position: relative; z-index:1" th:src="@{'/gifs/' + ${gif.name} + '.gif'}" alt="gif" />
-                <a href="#"src="static/icons/unfavorite.png" th:class="(${gif.favorites} ? 'un' : '') + 'mark favorite'">
+                <a onclick="changeFav(); return false;" id="mark" href="#" src="static/icons/unfavorite.png" th:class="(${gif.favorites} ? 'un' : '') + 'mark favorite'">
                     <img style="position : relative; z-index:2" src="static/icons/unfavorite.png"/>
                 </a>
             </div>
@@ -66,8 +66,18 @@
             </div>
             <div class="col s12 l6">
                 <div class="share">
-                    <a class="btn right" href="#">Copy</a>
-                    <span th:text="'http://gif.fy/' + ${gif.name}">URL</span>
+                    <button class="btn right" href="#" onclick="myFunction()">Copy</button>
+
+                    <span th:text="'http://gif.fy/' + ${gif.name}"  id="myInput">URL</span>
+
+                    <script>
+                        function myFunction() {
+                            var copyText = document.getElementById("myInput");
+                            copyText.select();
+                            document.execCommand("Copy");
+                            alert("Copied the text: " + copyText.value);
+                        }
+                    </script>
                 </div>
             </div>
         </div>
