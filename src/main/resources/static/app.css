@@ -173,6 +173,14 @@ nav ul li.active, nav ul li:hover {
     color: #fefefe;
 }
 
+.share textarea {
+    color: #896bb3;
+    height: 29px;
+    width: 293px;
+    border: 0px;
+    padding: 2px;
+}
+
 .share span {
     color: #896bb3;
     line-height: 36px;
