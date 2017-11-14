@@ -9,6 +9,7 @@ public class GifDaoImpl implements GifDao {
     private static List<Gif> names = new ArrayList<>();
 
     static {
+        CategoryDaoImpl dao = new CategoryDaoImpl();
         names.add(new Gif("android-explosion", "Daniel", false, "Android"));
         names.add(new Gif("ben-and-mike", "Daniel", true, "Funny"));
         names.add(new Gif("book-dominos", "Daniel", false, "Programming"));
