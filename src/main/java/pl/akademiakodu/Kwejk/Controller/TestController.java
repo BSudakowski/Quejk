@@ -4,12 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import pl.akademiakodu.Kwejk.Dao.GifDao;
 import pl.akademiakodu.Kwejk.Model.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class TestController {
@@ -17,9 +18,9 @@ public class TestController {
     @Autowired
     GifDao dao;
 
-   @GetMapping ("/")
+    @GetMapping ("/")
     public String Home(ModelMap modelMap){
-       modelMap.put("gifs", dao.getGifs());
+        modelMap.put("gifs", dao.getGifs());
         return "home";
     }
 
@@ -35,9 +36,9 @@ public class TestController {
         return "favorites";
     }
 
-    @GetMapping("/details")
-    public String gifDetails(ModelMap modelMap, @RequestParam String id){
-        modelMap.put("gifDetail", dao.getGifs().get(Integer.parseInt(id)));
+    @GetMapping("/details/{url}")
+    public String details(@PathVariable String url, ModelMap modelMap){
+        modelMap.addAttribute("detail", dao.findOne(url).get(0));
         return "gif-details";
     }
 }

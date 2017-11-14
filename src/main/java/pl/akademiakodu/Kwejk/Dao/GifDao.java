@@ -8,4 +8,5 @@ public interface GifDao {
 
     void addUrl (String url);
     List<Gif> getGifs();
-    }
+    List<Gif> findOne(String url);
+}

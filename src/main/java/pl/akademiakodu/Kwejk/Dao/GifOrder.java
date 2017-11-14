@@ -5,6 +5,9 @@ import pl.akademiakodu.Kwejk.Model.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 @Component
 
 public class GifOrder implements GifDao {
@@ -12,13 +15,12 @@ public class GifOrder implements GifDao {
     private List<Gif> gifs = new ArrayList<>();
 
     public GifOrder(){
-        gifs.add(new Gif("gifs/android-explosion.gif", true, "0"));
-        gifs.add(new Gif("gifs/ben-and-mike.gif", false, "1"));
-        gifs.add(new Gif("gifs/book-dominos.gif", false, "2"));
-        gifs.add(new Gif("gifs/compiler-bot.gif", false, "3"));
-        gifs.add(new Gif("gifs/cowboy-coder.gif", false, "4"));
-        gifs.add(new Gif("gifs/infinite-andrew.gif", true, "5"));
-
+        gifs.add(new Gif("android-explosion", true));
+        gifs.add(new Gif("ben-and-mike", false));
+        gifs.add(new Gif("book-dominos", false));
+        gifs.add(new Gif("compiler-bot", false));
+        gifs.add(new Gif("cowboy-coder", false));
+        gifs.add(new Gif("infinite-andrew", true));
     }
 
     @Override
@@ -29,5 +31,10 @@ public class GifOrder implements GifDao {
     @Override
     public List<Gif> getGifs() {
         return gifs;
+    }
+
+    @Override
+    public List<Gif> findOne(String url) {
+        return gifs.stream().filter((g)->g.getUrl().equals(url)).collect(Collectors.toList());
     }
 }
