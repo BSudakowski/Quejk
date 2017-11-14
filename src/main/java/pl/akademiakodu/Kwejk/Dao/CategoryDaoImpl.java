@@ -5,8 +5,14 @@ import pl.akademiakodu.Kwejk.Model.Category;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class CategoryDaoImpl implements CategoryDao {
+
+
+    public static final String name1 = "Android";
+    public static final String name2 = "Funny";
+    public static final String name3 = "Programming";
 
     private static List<Category> names = new ArrayList<>();
 
@@ -30,7 +36,8 @@ public class CategoryDaoImpl implements CategoryDao {
 
     @Override
     public Category findOne(String name) {
-        return null;
+
+        return names.stream().filter((c)->c.getName().equals(name)).collect(Collectors.toList()).get(0);
     }
 
     @Override
