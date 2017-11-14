@@ -9,13 +9,12 @@ public class GifDaoImpl implements GifDao {
     private static List<Gif> names = new ArrayList<>();
 
     static {
-        CategoryDaoImpl dao = new CategoryDaoImpl();
-        names.add(new Gif("android-explosion", "Daniel", false, "Android"));
-        names.add(new Gif("ben-and-mike", "Daniel", true, "Funny"));
-        names.add(new Gif("book-dominos", "Daniel", false, "Programming"));
-        names.add(new Gif("compiler-bot", "Kuba", true, "Funny"));
-        names.add(new Gif("cowboy-coder", "Kuba", false, "Android"));
-        names.add(new Gif("infinite-andrew", "Kuba", true, "Programming"));
+        names.add(new Gif("android-explosion", "Masaki", false, "Android"));
+        names.add(new Gif("ben-and-mike", "Bartek", true, "Funny"));
+        names.add(new Gif("book-dominos", "Masaki", false, "Programming"));
+        names.add(new Gif("compiler-bot", "Bartek", true, "Funny"));
+        names.add(new Gif("cowboy-coder", "Masaki", false, "Android"));
+        names.add(new Gif("infinite-andrew", "Bartek", true, "Programming"));
     }
 
     public List<Gif> findAll() {
