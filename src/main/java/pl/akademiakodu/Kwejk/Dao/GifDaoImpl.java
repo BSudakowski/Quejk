@@ -6,6 +6,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class GifDaoImpl implements GifDao {
+
+    public static final String name1 = "android-explosion";
+    public static final String name2 = "ben-and-mike";
+    public static final String name3 = "book-dominos";
+    public static final String name4 = "compiler-bot";
+    public static final String name5 = "cowboy-coder";
+    public static final String name6 = "infinite-andrew";
+
+
     private static List<Gif> names = new ArrayList<>();
 
     static {
