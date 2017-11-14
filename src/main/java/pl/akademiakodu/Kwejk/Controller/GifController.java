@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import pl.akademiakodu.Kwejk.Dao.CategoryDao;
 import pl.akademiakodu.Kwejk.Dao.CategoryDaoImpl;
 import pl.akademiakodu.Kwejk.Dao.GifDaoImpl;
+import pl.akademiakodu.Kwejk.Model.Category;
+import pl.akademiakodu.Kwejk.Model.Gif;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class GifController {
@@ -40,5 +45,15 @@ public class GifController {
    public String categories(ModelMap modelMap){
         modelMap.put("categories", categoryDao.findAll());
         return "categories";
+   }
+
+   @GetMapping("/category/{id}")
+    public String category(@PathVariable Long id, ModelMap modelMap){
+       Category c = categoryDao.findFavorite(id);
+       List<Gif> gifs = gifDao.findAll().stream().filter((g)->g.getCategory().equals(c.getName())).collect(Collectors.toList());
+       //System.out.println(gifs);
+       modelMap.addAttribute("category", c);
+       modelMap.addAttribute("gifs", gifs);
+       return "category";
    }
 }

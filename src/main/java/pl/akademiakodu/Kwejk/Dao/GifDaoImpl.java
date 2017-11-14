@@ -18,11 +18,14 @@ public class GifDaoImpl implements GifDao {
     }
 
     public List<Gif> findAll() {
+        return names;
+        /*
         List<Gif> gifs = new ArrayList<>();
         for (Gif name : names) {
             gifs.add(new Gif(name.getName(), name.getUsername()));
         }
         return gifs;
+        */
     }
 
     public List<Gif> findCategories() {

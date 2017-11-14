@@ -8,7 +8,7 @@ import java.util.Set;
 
 public interface CategoryDao {
     List<Category> findAll();
-    Category findFavorite(int index);
+    Category findFavorite(Long index);
 
     Category findOne(String name);
     Set<Category> findCategory();

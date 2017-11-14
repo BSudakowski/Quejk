@@ -23,8 +23,9 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public Category findFavorite(int index) {
-        return names.get(index);
+    public Category findFavorite(Long index) {
+        Integer i = new Integer(index.toString());
+        return names.get(i);
     }
 
     @Override
