@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" th:href="@{/app.css}" />
 
-    <title th:text="'giflib | ' + ${gif.getUrl()}">Kwejk</title>
+    <title th:text="'giflib | ' + ${gif.name}">Kwejk</title>
 </head>
 <body>
     <div class="navbar-fixed">
@@ -46,8 +46,10 @@
     <div class="gif-detail container">
         <div class="frame row">
             <div class="col s12">
-                <img th:src="${gif.getUrl()}" alt="gif" />
-                <a href="#" th:class="(${gif.isFavorite()} ? 'un' : '') + 'mark favorite'"></a>
+                <img style="position: relative; z-index:1" th:src="@{'/gifs/' + ${gif.name} + '.gif'}" alt="gif" />
+                <a href="#"src="static/icons/unfavorite.png" th:class="(${gif.favorites} ? 'un' : '') + 'mark favorite'">
+                    <img style="position : relative; z-index:2" src="static/icons/unfavorite.png"/>
+                </a>
             </div>
         </div>
         <div class="row">
@@ -57,19 +59,26 @@
                         <img class="circle" src="http://api.adorable.io/avatars/205/avatar" alt="avatar" />
                     </div>
                     <div class="col s9">
-                        
+
+                        <h2 th:text="${gif.username}"/>
                     </div>
                 </div>
             </div>
             <div class="col s12 l6">
                 <div class="share">
                     <a class="btn right" href="#">Copy</a>
-                    <span th:text="'http://gif.fy/' + ${gif.getUrl()}">URL</span>
+                    <span th:text="'http://gif.fy/' + ${gif.name}">URL</span>
                 </div>
             </div>
         </div>
     </div>
-
+    <div>
+       <!-- <div th:each="gif : ${gifs}">-->
+        <a th:href="@{|/gif/${gif.name}|}">
+            <img th:src="@{|/${gifs}/${gif.name}.gif|}" />
+        </a>
+    </div>
+    <img style="position : relative; z-index:2" src="static/icons/unfavorite.png"/>
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
 <script th:src="@{/app.js}"></script>

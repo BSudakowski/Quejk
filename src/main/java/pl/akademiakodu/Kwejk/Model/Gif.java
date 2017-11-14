@@ -2,46 +2,80 @@ package pl.akademiakodu.Kwejk.Model;
 
 public class Gif {
 
-    private String url;
-    private boolean isFavorite;
-    private String id;
+    private String name;
+    private String username;
+    private boolean favorites;
+    private String category;
 
-    public Gif() {
+    public Gif(String category) {
+        this.category = category;
     }
 
-    public Gif(String url, boolean isFavorite, String id) {
-        this.url = url;
-        this.isFavorite = isFavorite;
-        this.id = id;
+    public Gif(String name, String username, boolean favorites, String category) {
+        this.name = name;
+        this.username = username;
+        this.favorites = favorites;
+        this.category = category;
     }
 
-    public String getId() {
-        return id;
+    public Gif(String name, String username, boolean favorites) {
+        this.name = name;
+        this.username = username;
+        this.favorites = favorites;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public Gif(String name, String username) {
+        this.name = name;
+        this.username = username;
     }
 
-    public Gif(String url, boolean isFavorite) {
+    public Gif(String name, boolean favorites) {
+        this.name = name;
+        this.favorites = favorites;
+    }
 
-        this.url = url;
-        this.isFavorite = isFavorite;
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public boolean isFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(boolean favorites) {
+        this.favorites = favorites;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getUrl() {
-        return url;
+        return getName() + ".gif";
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public boolean isFavorite() {
-        return isFavorite;
-    }
-
-    public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
+    @Override
+    public String toString() {
+        return "Gif{" +
+                "name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", favorites=" + favorites +
+                '}';
     }
 }

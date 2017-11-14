@@ -45,16 +45,13 @@
     </div>
     <div class="gifs container">
         <div class="row">
-            <h1>Miejsce na wyświetlanie gifów:)</h1>
+            <div th:each="gif : ${fav}" class="col s12 l4">
+                <a th:href="@{|/gif/${gif.name}|}">
+                    <img th:src="@{|/gifs/${gif.name}.gif|}" />
+                </a>
+            </div>
         </div>
     </div>
-
-    <h1>Favorite Gifs</h1>
-    <th:block th:each="favoriteGif: ${favoriteGifs}">
-        <tr>
-            <td><img th:src="${favoriteGif.getUrl()}" class="col s12 l4"></td>
-        </tr>
-    </th:block>
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
