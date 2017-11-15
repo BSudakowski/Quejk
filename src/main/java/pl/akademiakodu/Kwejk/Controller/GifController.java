@@ -43,12 +43,12 @@ public class GifController {
     }
 
     @GetMapping("/categories")
-   public String categories(ModelMap modelMap){
+    public String categories(ModelMap modelMap){
         modelMap.put("categories", categoryDao.findAll());
         return "categories";
-   }
+    }
 
-   @GetMapping("/category/{id}")
+    @GetMapping("/category/{id}")
     public String category(@PathVariable Long id, ModelMap modelMap){
        Category c = categoryDao.findFavorite(id);
        List<Gif> gifs = gifDao.findAll().stream().filter((g)->g.getCategory().equals(c.getName())).collect(Collectors.toList());
@@ -56,9 +56,9 @@ public class GifController {
        modelMap.addAttribute("category", c);
        modelMap.addAttribute("gifs", gifs);
        return "category";
-   }
+    }
 
-   @GetMapping("/search")
+    @GetMapping("/search")
     public String search(@RequestParam String q, ModelMap modelMap){
        //System.out.println(gifDao.findOne(q));
        if(q.equals(GifDaoImpl.name1) || q.equals(GifDaoImpl.name2) || q.equals(GifDaoImpl.name3) || q.equals(GifDaoImpl.name4) || q.equals(GifDaoImpl.name5) || q.equals(GifDaoImpl.name6)) {
@@ -74,5 +74,5 @@ public class GifController {
        }
 
        return "home";
-   }
+    }
 }

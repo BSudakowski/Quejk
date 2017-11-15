@@ -1,10 +1,12 @@
 package pl.akademiakodu.Kwejk.Dao;
 
+import org.springframework.stereotype.Component;
 import pl.akademiakodu.Kwejk.Model.Gif;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Component
 public class GifDaoImpl implements GifDao {
 
     public static final String name1 = "android-explosion";

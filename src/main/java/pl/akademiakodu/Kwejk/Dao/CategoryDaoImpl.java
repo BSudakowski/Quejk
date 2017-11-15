@@ -1,5 +1,6 @@
 package pl.akademiakodu.Kwejk.Dao;
 
+import org.springframework.stereotype.Component;
 import pl.akademiakodu.Kwejk.Model.Category;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Component
 public class CategoryDaoImpl implements CategoryDao {
 
 
