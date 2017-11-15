@@ -20,7 +20,6 @@
 <div class="gifs container">
     <div class="chip" th:text="${category.name}">category name</div>
     <div class="row">
-        <h1>Miejsce na wyświetlenie gifów</h1>
         <div th:each="gif : ${gifs}" class="col s12 l4">
             <a th:href="@{|/gif/${gif.name}|}">
                 <img th:src="@{|/gifs/${gif.name}.gif|}" />

@@ -69,6 +69,7 @@ nav ul li.active, nav ul li:hover {
 .search-bar .input-field input ~ .material-icons, .search-bar .input-field input:focus ~ .material-icons {
     top: 0.5rem;
     color: #896bb3;
+    background-color: #f7f5fa;
 }
 
 ::-webkit-input-placeholder {
@@ -272,6 +273,8 @@ nav ul li.active, nav ul li:hover {
     .search-bar .input-field input ~ .material-icons, .search-bar .input-field input:focus ~ .material-icons {
         top: 1rem;
         right: 1.8rem;
+        background-color: #f7f5fa;
+        height: 29px;
     }
 
     .gifs {
@@ -307,4 +310,5 @@ nav ul li.active, nav ul li:hover {
     .chip {
         margin-left: 0.8rem;
     }
+
 }
