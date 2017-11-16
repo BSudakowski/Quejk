@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pl.akademiakodu.Kwejk.Dao.CategoryDao;
-import pl.akademiakodu.Kwejk.Dao.GifDaoImpl;
 import pl.akademiakodu.Kwejk.Model.Category;
 import pl.akademiakodu.Kwejk.Model.Gif;
+import pl.akademiakodu.Kwejk.service.CategoryService;
+import pl.akademiakodu.Kwejk.service.GifService;
 
 import java.util.List;
 
@@ -15,23 +15,23 @@ import java.util.List;
 public class RestfulController {
 
     @Autowired
-    CategoryDao categoryDao;
+    GifService gifService;
 
     @Autowired
-    GifDaoImpl gifDao;
+    CategoryService categoryService;
 
     @RequestMapping("/restfulcategories")
     public List<Category> restfulCategories(){
-        return categoryDao.findAll();
+        return categoryService.findAll();
     }
 
     @RequestMapping("/restfulcategory")
     public Category resutfulCategory(@RequestParam(value="name", defaultValue=("Android")) String name){
-        return categoryDao.findOne(name);
+        return categoryService.findOneByName(name);
     }
 
     @RequestMapping("/restfulgifs")
     public List<Gif> restfulGifs(){
-        return gifDao.findAll();
+        return gifService.findAll();
     }
 }
